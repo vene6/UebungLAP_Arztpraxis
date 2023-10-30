@@ -2,9 +2,18 @@
   .form-label{
     width: 300px;
   }
+  .card{
+    width: 600px;
+  }
+  .centered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+  }
 </style>
 
-<form>
+<form class="centered">
   <div class="card">
     <div class="card-header">
       <h2>Patienteninfo</h2>
