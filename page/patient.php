@@ -40,3 +40,21 @@
 
   
 </form>
+
+<?php
+  function outputTable() {
+    $query = "SELECT CONCAT(per_svnr, '/', per_geburt) AS Sozialversicherungsnummer, 
+                     per_vname AS Vorname, 
+                     per_nname AS Nachname, 
+                     dia_name AS Diagnose, 
+                     CONCAT_WS(' - ', ter_beginn, ter_ende) AS Behandlungszeitraum 
+                FROM behandlungszeitraum
+                JOIN person USING (per_id)
+                JOIN diagnose USING (dia_id)
+               WHERE per_svnr = ? 
+                 AND per_geburt = ?
+                 AND ter_beginn = ?
+                 AND ter_ende = ?";
+  
+    makeTable($query);
+  }
